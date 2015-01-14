@@ -5,7 +5,6 @@
 /npm_modules/
 /bower_components/
 composer.lock
-wp-config.php
 .DS_Store
 /wp/
 .env
