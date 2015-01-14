@@ -1,0 +1,68 @@
+{
+  "name": "aarc/wp",
+  "type": "project",
+  "license": "MIT",
+  "description": "AARC Wordpress Site",
+  "config": {
+    "preferred-install": "dist",
+    "generate-salts": true
+  },
+  "autoload": {
+    "psr-0": {"Bedrock\\Installer": "scripts"}
+  },
+  "scripts": {
+    "post-root-package-install": ["Bedrock\\Installer::addSalts"]
+  },
+  "repositories": [
+    {"type": "composer", "url": "http://wpackagist.org"},
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress",
+        "version": "4.0.1",
+        "type": "webroot",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/WordPress/WordPress/archive/4.0.1.zip"
+        },
+        "require" : {
+          "fancyguy/webroot-installer": "1.1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "knowledgebase",
+        "version": "1.6.0",
+        "type": "wordpress-theme",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/swashata/ipt-knowledgebase-theme-wp/archive/master.zip"
+        },
+        "require" : {
+          "fancyguy/webroot-installer": "1.1.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "wordpress": "4.0.1",
+    "fancyguy/webroot-installer": "1.1.0",
+    "composer/installers": "v1.0.6",
+    "wp-cli/wp-cli": "v0.13.0",
+    "vlucas/phpdotenv": "~1.0.5",
+    "knowledgebase": "~1.6.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "webroot-dir": "wp",
+    "webroot-dir": "wp",
+    "webroot-package": "wordpress"
+  }
+}

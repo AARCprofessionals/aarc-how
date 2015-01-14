@@ -1,0 +1,33 @@
+# This is a template .gitignore file for git-managed WordPress projects.
+ 
+# Ignore everything in the root except the "wp-content" directory.
+/vendor/
+/npm_modules/
+/bower_components/
+composer.lock
+wp-config.php
+.DS_Store
+/wp/
+.env
+/data/
+.idea
+.htaccess
+
+# Ignore everything in the "wp-content" directory, except the "plugins"
+# and "themes" directories.
+app/*
+!app/mu-plugins/
+!app/plugins/
+!app/themes/
+ 
+# Ignore everything in the "plugins" directory, except the plugins you
+# specify (see the commented-out examples for hints on how to do this.)
+app/plugins/*
+
+# Ignore everything in the "themes" directory, except the themes you
+# specify (see the commented-out example for a hint on how to do this.)
+app/themes/*
+!app/themes/knowledgebase-child/
+
+# ignore log files
+*.log
